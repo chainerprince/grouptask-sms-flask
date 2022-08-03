@@ -1,2 +1,4 @@
 /node_modules
 /venv/lib/site-packages
+myvenv/
+__pycache__/

@@ -1,11 +1,7 @@
-from flask import Flask, render_template
+from smsapp import create_app
 
-app = Flask(__name__)
+app = create_app('default')
 
-@app.route("/")
-@app.route("/index")
-def index():
-	return render_template("index.html")
 
-if __name__ == '__main__':
-	app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
