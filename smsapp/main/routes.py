@@ -3,5 +3,5 @@ from smsapp.main import main
 
 @main.route('/')
 def home():
-    return render_template('main/index.html', title="Home Page")
+    return render_template('main/index.html', title="Home Page") 
 

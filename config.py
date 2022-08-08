@@ -13,7 +13,7 @@ class Config:
 # Configuration for the app(Development or Testing)
 class DevelopmentConfig(Config):
     DEBUG = True
-    pass
+    SQLALCHEMY_DATABASE_URI = "postgresql://postgres:pg1234@localhost/newsmsdb"
 
 class TestingConfig(Config):
     TESTING = True

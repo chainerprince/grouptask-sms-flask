@@ -1,9 +1,15 @@
 from flask import Flask
 from config import config
+from flask_login import LoginManager
+from flask_socketio import SocketIO
+from flask_sqlalchemy import SQLAlchemy
 
 
 # Create instance of packages
-
+db = SQLAlchemy()
+socketio = SocketIO()
+login_manager = LoginManager()
+login_manager.login_view = 'auth.login'
 
 # Factory application
 def create_app(config_name):
@@ -13,7 +19,9 @@ def create_app(config_name):
     config[config_name].init_app(app)
     
     # Initialize all instances
-    
+    db.init_app(app)
+    socketio.init_app(app)
+    login_manager.init_app(app)
     
     # Attach blueprints
     from smsapp.auth import auth as auth_blueprint
