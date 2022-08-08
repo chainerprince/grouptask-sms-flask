@@ -16,24 +16,24 @@
     <meta name="keywords"
         content="Doot chat template, chat, web chat template, chat status, chat template, communication, discussion, group chat, message, messenger template, status" />
     <meta content="Themesbrand" name="author" />
-<!-- App favicon -->
-<link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/favicon.ico') }}">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/favicon.ico') }}">
 
-<!-- glightbox css -->
-<link rel="stylesheet" href="{{ url_for('static', filename='assets/libs/glightbox/css/glightbox.min.css') }}">
+    <!-- glightbox css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/libs/glightbox/css/glightbox.min.css') }}">
 
-<!-- swiper css -->
-<link rel="stylesheet" href="{{ url_for('static', filename='assets/libs/swiper/swiper-bundle.min.css') }}">
+    <!-- swiper css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/libs/swiper/swiper-bundle.min.css') }}">
 
 
-<!-- Bootstrap Css -->
-<link href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet"
-    type="text/css" />
-<!-- Icons Css -->
-<link href="{{ url_for('static', filename='assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
-<!-- App Css-->
-<link href="{{ url_for('static', filename='assets/css/app.min.css') }}" id="app-style" rel="stylesheet"
-    type="text/css" />
+    <!-- Bootstrap Css -->
+    <link href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet"
+        type="text/css" />
+    <!-- Icons Css -->
+    <link href="{{ url_for('static', filename='assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="{{ url_for('static', filename='assets/css/app.min.css') }}" id="app-style" rel="stylesheet"
+        type="text/css" />
 
 </head>
 
@@ -68,20 +68,18 @@
                                             <h3>Register Account</h3>
                                             <p class="text-muted">Get your free Doot account now.</p>
                                         </div>
-                                        <form class="needs-validation" novalidate
-                                            action="https://themesbrand.com/doot/layouts/index.html">
+                                        <form class="needs-validation" novalidate method="POST">
+                                            {{ form.csrf_token }}
                                             <div class="mb-3">
                                                 <label for="useremail" class="form-label">Email</label>
-                                                <input type="email" class="form-control" id="useremail"
-                                                    placeholder="Enter email" required>
+                                                {{ form.email(class="form-control") }}
                                                 <div class="invalid-feedback">
                                                     Please Enter Email
                                                 </div>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="username" class="form-label">Username</label>
-                                                <input type="text" class="form-control" id="username"
-                                                    placeholder="Enter username" required>
+                                                {{ form.username(class="form-control") }}
                                                 <div class="invalid-feedback">
                                                     Please Enter Username
                                                 </div>
@@ -89,8 +87,7 @@
 
                                             <div class="mb-3">
                                                 <label for="userpassword" class="form-label">Password</label>
-                                                <input type="password" class="form-control" id="userpassword"
-                                                    placeholder="Enter password" required>
+                                                {{ form.password(class="form-control") }}
                                                 <div class="invalid-feedback">
                                                     Please Enter Password
                                                 </div>
@@ -161,23 +158,23 @@
     <!-- end auth bg -->
 
     <!-- JAVASCRIPT -->
-<script src="{{ url_for('static', filename='assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ url_for('static', filename='assets/libs/simplebar/simplebar.min.js') }}"></script>
-<script src="{{ url_for('static', filename='assets/libs/node-waves/waves.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/libs/simplebar/simplebar.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/libs/node-waves/waves.min.js') }}"></script>
 
-<!-- glightbox js -->
-<script src="{{ url_for('static', filename='assets/libs/glightbox/js/glightbox.min.js') }}"></script>
+    <!-- glightbox js -->
+    <script src="{{ url_for('static', filename='assets/libs/glightbox/js/glightbox.min.js') }}"></script>
 
-<!-- Swiper JS -->
-<script src="{{ url_for('static', filename='assets/libs/swiper/swiper-bundle.min.js') }}"></script>
+    <!-- Swiper JS -->
+    <script src="{{ url_for('static', filename='assets/libs/swiper/swiper-bundle.min.js') }}"></script>
 
-<!-- fg-emoji-picker JS -->
-<script src="{{ url_for('static', filename='assets/libs/fg-emoji-picker/fgEmojiPicker.js') }}"></script>
+    <!-- fg-emoji-picker JS -->
+    <script src="{{ url_for('static', filename='assets/libs/fg-emoji-picker/fgEmojiPicker.js') }}"></script>
 
-<!-- page init -->
-<script src="{{ url_for('static', filename='assets/js/pages/index.init.js') }}"></script>
+    <!-- page init -->
+    <script src="{{ url_for('static', filename='assets/js/pages/index.init.js') }}"></script>
 
-<script src="{{ url_for('static', filename='assets/js/app.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/app.js') }}"></script>
 
 </body>
 

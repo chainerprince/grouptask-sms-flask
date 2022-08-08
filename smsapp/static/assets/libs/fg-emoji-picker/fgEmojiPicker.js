@@ -12,6 +12,8 @@ FgEmojiPicker.init({
 });
 */
 
+
+
 const FgEmojiPicker = function (options) {
 
     this.options = options;
