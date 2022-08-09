@@ -72,9 +72,9 @@ function searchContactOnModal() {
   function a() {
     var a = document.getElementsByClassName("user-chat");
     document.querySelectorAll(".chat-user-list li a").forEach(function (e) {
-      e.addEventListener("click", function (e) {
+      e.addEventListener("load", function (e) {
         a.forEach(function (e) {
-          e.classList.add("user-chat-show");
+          // e.classList.add("user-chat-show");
         });
         var t = document.querySelector(".chat-user-list li.active");
         t && t.classList.remove("active"),
@@ -108,8 +108,7 @@ function searchContactOnModal() {
   }
   function u() {
     "users" == o
-      ? ((document.getElementById("channel-chat").style.display = "none"),
-        (document.getElementById("users-chat").style.display = "block"))
+      ? ((document.getElementById("users-chat").style.display = "block"))
       : ((document.getElementById("channel-chat").style.display = "block"),
         (document.getElementById("users-chat").style.display = "none")),
       q(s + "chats.json");
@@ -315,71 +314,6 @@ function searchContactOnModal() {
         });
       });
   }),
-    e("callList.json", function (e, t) {
-      null !== e
-        ? console.log("Something went wrong: " + e)
-        : ((callList = t),
-          callList.forEach(function (e, t) {
-            var a =
-                !0 === e.callVideo
-                  ? '<button type="button" class="btn btn-link p-0 font-size-20 stretched-link" data-bs-toggle="modal" data-bs-target=".videocallModal"><i class="' +
-                    e.callTypeIcon +
-                    '"></i></button>'
-                  : '<button type="button" class="btn btn-link p-0 font-size-20 stretched-link" data-bs-toggle="modal" data-bs-target=".audiocallModal"><i class="' +
-                    e.callTypeIcon +
-                    '"></i></button>',
-              s = e.profile
-                ? '<img src="' +
-                  e.profile +
-                  '" class="rounded-circle avatar-xs" alt="">'
-                : '<div class="avatar-xs"><span class="avatar-title rounded-circle bg-danger text-white">RL</span></div>';
-            document.getElementById("callList").innerHTML +=
-              '<li id="calls-id-' +
-              e.id +
-              '" >        <div class="d-flex align-items-center">        <div class="chat-user-img flex-shrink-0 me-2">            ' +
-              s +
-              '        </div>            <div class="flex-grow-1 overflow-hidden">                <p class="text-truncate mb-0">' +
-              e.name +
-              '</p>                <div class="text-muted font-size-12 text-truncate"><i class="' +
-              e.callArrowType +
-              '"></i> ' +
-              e.dateTime +
-              '</div>            </div>            <div class="flex-shrink-0 ms-3">                <div class="d-flex align-items-center gap-3">                    <div>                        <h5 class="mb-0 font-size-12 text-muted">' +
-              e.callTime +
-              "</h5>                    </div>                    <div>                       " +
-              a +
-              "                    </div>                </div>            </div>        </div>      </li>";
-          })),
-        document.querySelectorAll("#callList li").forEach(function (i) {
-          i.addEventListener("click", function (e) {
-            var t = i.getAttribute("id"),
-              a = i.querySelector(".text-truncate").innerHTML;
-            (document.querySelector(
-              ".videocallModal .text-truncate"
-            ).innerHTML = a),
-              (document.querySelector(
-                ".audiocallModal .text-truncate"
-              ).innerHTML = a);
-            var s = document
-              .getElementById(t)
-              .querySelector(".avatar-xs")
-              .getAttribute("src");
-            s
-              ? (document
-                  .querySelector(".audiocallModal .img-thumbnail")
-                  .setAttribute("src", s),
-                document
-                  .querySelector(".videocallModal .videocallModal-bg")
-                  .setAttribute("src", s))
-              : (document
-                  .querySelector(".audiocallModal .img-thumbnail")
-                  .setAttribute("src", l),
-                document
-                  .querySelector(".videocallModal .videocallModal-bg")
-                  .setAttribute("src", l));
-          });
-        });
-    }),
     e("contacts.json", function (e, t) {
       var i, r;
       null !== e
@@ -671,7 +605,7 @@ function searchContactOnModal() {
     closeButton: !0,
     position: ["top", "right"],
     preFetch: !0,
-    dir: "static/assets/js/api/json/",
+    dir: "/static/assets/js/api/json/",
     insertInto: document.querySelector(".chat-input"),
   });
   function S(e, t, a, s, i) {
@@ -784,13 +718,7 @@ function searchContactOnModal() {
                 : e.closest(".ctext-wrap").remove();
             });
           }),
-          y.querySelectorAll(".delete-item").forEach(function (e) {
-            e.addEventListener("click", function () {
-              2 == e.closest(".user-chat-content").childElementCount
-                ? e.closest(".chat-list").remove()
-                : e.closest(".ctext-wrap").remove();
-            });
-          }),
+          
           v.querySelectorAll(".chat-list").forEach(function (e) {
             e.querySelectorAll(".delete-image").forEach(function (e) {
               e.addEventListener("click", function () {
@@ -808,14 +736,7 @@ function searchContactOnModal() {
               navigator.clipboard.writeText(e);
             });
           }),
-          y.querySelectorAll(".copy-message").forEach(function (t) {
-            t.addEventListener("click", function () {
-              var e = t.closest(".ctext-wrap").children[0]
-                ? t.closest(".ctext-wrap").children[0].children[0].innerText
-                : "";
-              navigator.clipboard.writeText(e);
-            });
-          }),
+          
           m("users-chat"),
           GLightbox({ selector: ".popup-img", title: !1 });
       }),
